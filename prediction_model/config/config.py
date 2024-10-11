@@ -70,3 +70,13 @@ FEATURES_TO_SCALED = ['amt', 'city_pop', 'job', 'merch_lat', 'merch_long',
        'category_kids_pets', 'category_misc_net', 'category_misc_pos',
        'category_personal_care', 'category_shopping_net',
        'category_shopping_pos', 'category_travel']
+
+GRID_SEARCH = {
+     'n_estimators': [80, 90, 100, 110, 120], # Default= 100
+     'criterion': ['gini', 'entropy', 'log_loss'], #Default 'gini'
+     'min_samples_leaf': [1, 2, 3] #Default 1
+}
+
+# Constants
+THRESHOLD = 0.85  # Set your performance threshold
+MONITORING_INTERVAL = 43200  # Check every twelve hours

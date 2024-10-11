@@ -1,4 +1,5 @@
 from sklearn.pipeline import Pipeline
+from sklearn.model_selection import RandomizedSearchCV
 from pathlib import Path
 import os
 import sys
@@ -26,4 +27,14 @@ classification_pipeline = Pipeline(
     [("Scaler", StandardScaler()),
     ("RandomForest", RandomForestClassifier())
      ]
+)
+
+retrain_pipeline = RandomizedSearchCV(
+    classification_pipeline,
+    param_distributions= config.GRID_SEARCH,
+    n_iter=100,
+    cv=5,      
+    verbose=1,
+    random_state=42,
+    n_jobs=-1    
 )
